@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Harmond';
+  src: url('../assets/fonts/Harmond-ExtraBoldExpanded.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* --- REPRISE DES STYLES COMMUNS (IDENTIQUES À TON PORTFOLIO) --- */
 /* Reset et base */
 * {

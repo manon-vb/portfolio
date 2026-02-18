@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Harmond';
+  src: url('../assets/fonts/Harmond-ExtraBoldExpanded.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Dans ton CSS global (pour body/html) */
 body, html {
