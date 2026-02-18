@@ -1,3 +1,14 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Harmond ExtBd Exp';
+  src: url('../assets/fonts/Harmond%20ExtBd%20Exp.woff2') format('woff2'),
+       url('../assets/fonts/Harmond%20ExtBd%20Exp.woff') format('woff'),
+       url('../assets/fonts/Harmond%20ExtBd%20Exp.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Dans ton CSS global (pour body/html) */
 body, html {
   width: 100%;
