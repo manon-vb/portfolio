@@ -1,0 +1,1081 @@
+
+/* Dans ton CSS global (pour body/html) */
+body, html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Évite les barres de défilement horizontales */
+}
+
+/* --- Fond commun --- */
+.common-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.glass-texture-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/stripped glass.jpg");
+  background-repeat: repeat;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* --- Header (toujours visible) --- */
+.main-header {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50vw;
+  padding: 0.6rem 3rem;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  z-index: 30;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(154, 232, 196, 0.25);
+  transition: all 0.6s ease;
+}
+.header-nav {
+  display: flex;
+  gap: 2vw; /* Espacement plus large (ex: 5vw) */
+  justify-content: center;
+}
+
+
+.header-nav a {
+  color: rgba(154, 232, 196, 0.75); /* Couleur actuelle (turquoise transparent) */
+  text-decoration: none;
+  font-family: 'Harmond';
+  font-size: 1.2rem;
+}
+.header-nav a:hover {
+  color: rgba(154, 232, 196, 1); /* Couleur actuelle au survol (turquoise plein) */
+  transition: color 0.3s ease; /* Animation fluide */
+}
+
+
+.main-header.active {
+  top: 2vh;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Sections pleines pages --- */
+.fullpage-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.frontpage-section {
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.projects-section {
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  overflow-y: auto;
+  padding-top: 100px;
+}
+
+.projects-section.active {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+/* --- Bloc titre frontpage --- */
+.hero-text {
+  position: absolute;
+  right: 8%;
+  top: 35vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: 'Harmond';
+  font-size: 10vw;
+  line-height: 1;
+  color: rgba(154, 232, 196, 0.8);
+  z-index: 2;
+}
+/* Quinconce */
+.line1 { margin-right: 0; }
+.line2 { margin-right: 120px; }
+.line3-row { display: flex; align-items: flex-end; justify-content: flex-end; margin-right: 0; }
+.line3 { margin-left: 1vw; }
+.line-bar {
+  width: 55vw;
+  height: 0.2vh;
+  background-color: rgba(154, 232, 196, 0.6);
+  margin: 0 1.5vw;
+  margin-bottom: 5vh;
+  align-self: flex-end;
+  position: relative;
+  top: 1vh;
+  transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  clip-path: inset(0 0% 0 0);
+}
+.line1, .line2, .line3 { transition: transform 1s ease; }
+/* Top line */
+.top-line-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5vw;
+  position: absolute;
+  top: -25vh;
+  right: -1vw;
+  left: 2vw;
+  z-index: 2;
+}
+.top-line-row span { font-size: 2vw; color: rgba(154, 232, 196, 0.6); white-space: nowrap; }
+.line-bar-top { height: 0.2vh; background-color: rgba(154, 232, 196, 0.6); flex-grow: 1; margin: 0 0.5vw; }
+.top-line-row span, .top-line-row .line-bar-top {
+  transition: clip-path 0.4s ease;
+  clip-path: inset(0 0 0 0);
+}
+.top-line-row.hide-top span, .top-line-row.hide-top .line-bar-top {
+  clip-path: inset(0 0 0 100%);
+}
+/* --- Ton CSS existant pour la frontpage --- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- SECTION "DERNIERS PROJETS" (NOUVELLE VERSION) --- */
+.frontpage-section {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* --- SECTION "DERNIERS PROJETS" --- */
+.projects-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 0 0;
+  background: transparent;
+  z-index: 10;
+  opacity: 0; /* Invisible au chargement */
+  pointer-events: none; /* Désactive les interactions */
+  transition: opacity 0.5s ease;
+ overflow: visible; 
+
+}
+
+/* --- TITRE "DERNIERS PROJETS" (STYLE CORRIGÉ) --- */
+.projects-section h1 {
+  margin: 6rem 0 3vh 4rem; /* Marge bottom réduite à 30px */
+  position: relative;
+  z-index: 20;
+  font-family: 'Harmond', sans-serif;
+  font-size: 3rem;
+  color: rgba(154, 232, 196, 0.85); /* Couleur turquoise (plus violet) */
+  text-transform: lowercase;
+  text-align: left;
+}
+
+/* --- ANIMATION DU TITRE "DERNIERS PROJETS" --- */
+/* Masqué initialement */
+.projects-section h1 {
+  opacity: 0;
+  transform: translateX(-20vw); /* Départ à gauche */
+  transition: opacity 0.6s cubic-bezier(0.2, 0.6, 0.3, 1), transform 0.6s cubic-bezier(0.2, 0.6, 0.3, 1);
+}
+
+/* Apparition quand la section est active */
+.projects-section.active h1 {
+  opacity: 1;
+  transform: translateX(0); /* Position finale */
+}
+
+
+.projects-section h1 a {
+  color: inherit; /* Hérite de la couleur du h1 (turquoise) */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.projects-section h1 a:hover {
+  color: rgba(154, 232, 196, 1); /* Turquoise plus vive au survol */
+}
+
+
+/* --- CONTENEUR DU PROJET (PERMET LE DÉBORDEMENT) --- */
+.featured-project {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  height: 85vh;
+  margin: 0 calc(-50vw + 50%);
+  left: 0;
+  overflow: visible !important; /* ← Permet d'afficher les éléments qui dépassent */
+  margin-bottom: 26vh;
+}
+
+/* Bordure haute animée */
+.featured-project::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px; /* Épaisseur de la bordure */
+  background: rgba(154, 232, 196, 0.8);
+  transform: scaleX(0); /* Début : invisible */
+  transform-origin: left;
+  animation: borderAnimation 2s ease forwards; /* Animation au chargement */
+  animation-delay: 3s;
+  z-index: 20;
+}
+
+@keyframes borderAnimation {
+  0% {
+    transform: scaleX(0); /* Début : bordure invisible */
+  }
+  100% {
+    transform: scaleX(1); /* Fin : bordure pleine largeur */
+  }
+}
+
+/* --- CARTE DE DÉTAILS (POSITIONNEMENT OPTIMISÉ) --- */
+.project-card {
+  position: absolute;
+  bottom: -5vh;
+  right: 2vw;
+  max-width: 400px;
+  padding: 20px 25px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  border-radius: 8px 0 8px 8px;
+  border-left: 2px solid rgba(154, 232, 196, 0.8);
+  color: rgba(154, 232, 196, 0.95);
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+/* --- ESPACE RÉSERVÉ POUR LA CARTE (ÉVITE LES CHEVAUCHEMENTS AVEC LA GALERIE) --- */
+.projects-section {
+  margin-bottom: 100px; /* Espace supplémentaire en bas */
+}
+
+/* Média pleine largeur (image/video) */
+.featured-media {
+  position: relative;
+  width: 100%; /* 100% du conteneur parent */
+  height: 100%;
+}
+
+/* Image/Video pleine largeur */
+.featured-image,
+.featured-video {
+  width: 100%; /* 100% du conteneur parent */
+  height: 100%;
+  object-fit: cover; /* Remplit tout l'espace */
+  object-position: center; /* Centre l'image */
+}
+
+
+/* Adaptation pour mobile (évite le chevauchement excessif) */
+@media (max-width: 768px) {
+  .project-card {
+    bottom: -10px;
+    right: -10px;
+    max-width: 90%;
+    border-radius: 8px;
+  }
+}
+
+
+/* Correction pour éviter les débordements sur mobile */
+@media (max-width: 768px) {
+  .featured-project {
+    width: 100%;
+    margin: 0;
+    left: 0;
+    border-radius: 0; /* Évite les coins arrondis qui coupent l'image */
+  }
+}
+
+
+.project-title {
+  font-family: 'Harmond', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: rgba(154, 232, 196, 1);
+}
+
+.project-description {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.project-link {
+  font-family: 'Bodoni Moda', serif;
+  color: rgba(154, 232, 196, 1);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+  transform: translateX(5px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Galerie horizontale */
+/* --- GALERIE (SANS GAP, SANS MARGES, TITRES SUPERPOSÉS) --- */
+.projects-gallery {
+  display: flex;
+  overflow-x: auto;
+  padding: 0; /* Supprime les marges internes */
+  margin: 0; /* Supprime les marges externes */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  width: 100%;
+}
+
+/* Élément de la galerie (pleine largeur) */
+.gallery-item {
+  flex: 0 0 auto; /* Largeur automatique basée sur le contenu */
+  scroll-snap-align: start;
+  margin: 0; /* Supprime les marges */
+  position: relative; /* Pour le positionnement du titre */
+}
+
+/* Conteneur de l'image */
+.gallery-image {
+  width: 19vw; /* Largeur fixe pour chaque projet (format paysage) */
+  height: 50vh; /* Hauteur fixe */
+  position: relative;
+  overflow: hidden;
+  border-radius: 0; /* Pas de bordure arrondie */
+}
+
+/* Image du projet */
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Format paysage forcé (Memory n°3) */
+  display: block;
+}
+
+/* Titre superposé sur l'image */
+.gallery-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+color: rgba(154, 232, 196, 1);
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1.2rem;
+  text-align: left;
+  margin: 0; /* Supprime les marges */
+}
+
+/* Barre de défilement en dessous */
+.projects-gallery::-webkit-scrollbar {
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+}
+
+.projects-gallery::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0 10px; /* Espace latéral pour la barre */
+}
+
+.projects-gallery::-webkit-scrollbar-thumb {
+  background: rgba(154, 232, 196, 0.5);
+  border-radius: 4px;
+}
+
+/* --- OVERLAY SOMBRE + LIEN VERS LE PROJET --- */
+/* Conteneur de l'image (position relative pour l'overlay) */
+.gallery-image {
+
+  overflow: hidden;
+  border-radius: 0;
+  transition: transform 0.3s ease; /* Animation fluide au survol */
+}
+
+/* Overlay sombre (masqué par défaut) */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Overlay sombre */
+  opacity: 0; /* Masqué par défaut */
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* Lien vers le projet (superposé) */
+.gallery-link {
+color: rgba(154, 232, 196, 1);
+  text-decoration: none;
+font-family: 'Bodoni Moda', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  opacity: 0; /* Masqué par défaut */
+  transition: opacity 0.3s ease;
+  z-index: 21;
+}
+
+
+/* Effet de survol : affiche l'overlay et le lien */
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-link {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-title {
+  opacity: 0; /* Masque le titre au survol (optionnel) */
+}
+
+/* Animation légère de l'image au survol */
+.gallery-item:hover .gallery-img {
+  transform: scale(1.02);
+}
+
+/* --- BOUTON "VOIR PLUS" (SURBRILLANCE SOUS LA GALERIE) --- */
+.voir-plus-container {
+  display: flex;
+  justify-content: right;
+  margin-top: 40px; /* Espace entre la galerie et le bouton */
+  margin-right: 6vw;
+  padding-bottom: 1vh; /* Espace en bas */
+}
+
+.voir-plus-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: transparent;
+  color: rgba(154, 232, 196, 0.9); /* Couleur turquoise (comme ton thème) */
+  text-decoration: none;
+  font-family: 'Harmond', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  border: 1px solid rgba(154, 232, 196, 0.4);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 30;
+}
+
+.voir-plus-button:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(154, 232, 196, 0.2);
+  border-color: rgba(154, 232, 196, 0.7);
+  box-shadow: 0 4px 12px rgba(154, 232, 196, 0.2);
+}
+
+.voir-plus-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(154, 232, 196, 0.1) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.voir-plus-button:hover::before {
+  transform: translateX(100%); /* Effet de surbrillance */
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.voir-plus-button:hover .arrow {
+  transform: translateX(5px); /* Animation de la flèche */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- NOUVELLE SECTION "À PROPOS" MODIFIÉE --- */
+/* Conteneur principal */
+
+/* Image de fond pleine largeur */
+.about-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.about-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+/* Bordure animée haute */
+.about-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(154, 232, 196, 0.8);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: borderAnimation 1.5s ease forwards;
+  animation-delay: 8s;
+  z-index: 20;
+}
+
+/* Cadre verre flouté (plus petit et centré) */
+/* Cadre verre flouté - CORRIGÉ */
+.about-glass-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrage parfait */
+  width: 60vw; /* Largeur relative à la viewport */
+  max-width: 800px; /* Largeur maximale */
+  max-height: 80vh; /* Hauteur maximale pour éviter le débordement */
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 8px;
+  border: 1px solid rgba(154, 232, 196, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden; /* Empêche le débordement */
+  margin: 0; /* Supprime les marges par défaut */
+}
+
+/* Conteneur principal - AJUSTÉ */
+.about-section-new {
+  position: relative;
+  width: 100%;
+  min-height: 80vh; /* Hauteur minimale augmentée */
+  margin: 0 auto;
+  overflow: hidden;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.about-section-new.visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible;
+}
+
+/* Responsive - CORRIGÉ */
+@media (max-width: 768px) {
+  .about-glass-content {
+    width: 90vw;
+    max-height: 90vh;
+    padding: 20px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 40px auto;
+  }
+
+  .about-section-new {
+    min-height: auto;
+    padding: 60px 0;
+  }
+}
+
+
+/* Contenu texte */
+.about-text-content {
+  width: 100%;
+  text-align: center;
+}
+
+.about-text-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-transform: lowercase;
+  color: rgba(154, 232, 196, 0.95);
+  border-bottom: none; /* Ligne sous le titre supprimée */
+  padding-bottom: 10px;
+  display: block; /* Changé de inline-block à block */
+  font-family: 'Harmond', sans-serif;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-text-content p {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 30px;
+  color: rgba(154, 232, 196, 0.9);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-link {
+  font-family: 'Harmond', sans-serif;
+  color: rgba(154, 232, 196, 0.9);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-link:hover {
+  transform: translateX(5px);
+  color: rgba(154, 232, 196, 1);
+}
+
+/* Animation de bordure */
+@keyframes borderAnimation {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-glass-content {
+    width: 90%;
+    padding: 30px 20px;
+    margin: 40px auto;
+    transform: none;
+    top: auto;
+  }
+
+  .about-text-content h2 {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== ANIMATIONS POUR LES SECTIONS ===== */
+/* Projet pleine largeur (masqué au départ) */
+.featured-project {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+/* --- GALERIE (MASQUÉE INITIALEMENT) --- */
+.projects-gallery {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.6, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.6, 0.3, 1);
+}
+
+/* Apparition au scroll */
+.projects-gallery.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section "À propos" (masquée au départ) */
+/* Section "À propos" */
+.about-section {
+  opacity: 0;
+  transform: translateX(-50px);
+  display: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE VERSION
+   ============================================ */
+
+/* --- MOBILE (max 768px) --- */
+@media (max-width: 768px) {
+  /* Header */
+  .main-header {
+    width: 80vw;
+    padding: 0.5rem 1.5rem;
+  }
+  
+  .header-nav {
+    gap: 4vw;
+  }
+  
+  .header-nav a {
+    font-size: 1rem;
+  }
+  
+  /* Hero */
+  .hero-text {
+    right: 5%;
+    left: 5%;
+    top: 40vh;
+    font-size: 17vw;
+    align-items: flex-end;
+  }
+  
+  .line1 {
+    margin-right: 0;
+  }
+  
+  .line2 {
+    margin-right: 40px;
+  }
+  
+  .line3-row {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .line-bar {
+    width: 40vw;
+    margin-bottom: 7vw;
+    margin-right: 3vw;
+  }
+  
+  .top-line-row {
+    top: -20vh;
+    right: 0;
+    left: 0;
+    gap: 1vw;
+    padding: 0 5%;
+  }
+  
+  .top-line-row span {
+    font-size: 4.5vw;
+  }
+  
+  .line-bar-top {
+    margin: 0 1vw;
+  }
+  
+  /* Projects section */
+  .projects-section h1 {
+    font-size: 2rem;
+    margin: 4rem 0 2vh 1.5rem;
+  }
+  
+  .featured-project {
+    height: 55vh;
+    margin-bottom: 22vh;
+  }
+  
+  .project-card {
+    position: absolute;
+    bottom: -15vh;
+    right: 2rem;
+    left: 2rem;
+    max-width: calc(100% - 4rem);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border-left: none;
+    border-top: 2px solid rgba(154, 232, 196, 0.8);
+  }
+  
+  .project-title {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  
+  .project-description {
+    font-size: 0.7rem;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  
+  .project-link {
+    font-size: 0.7rem;
+  }
+  
+  /* Gallery */
+  .gallery-image {
+    width: 75vw;
+    height: 40vh;
+  }
+  
+  .gallery-title {
+    font-size: 1rem;
+    padding: 12px;
+  }
+  
+  .voir-plus-container {
+    justify-content: center;
+    margin-right: 0;
+    margin-top: 30px;
+  }
+  
+  .voir-plus-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  /* About section */
+  .about-section-new {
+    min-height: auto;
+    padding: 40px 0;
+  }
+  
+  .about-glass-content {
+    width: 90vw;
+    max-height: none;
+    padding: 25px 20px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 20px auto;
+  }
+  
+  .about-text-content h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .about-text-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .about-link {
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* --- SMALL MOBILE (max 480px) --- */
+@media (max-width: 480px) {
+  /* Header */
+  .main-header {
+    width: 85vw;
+    padding: 0.4rem 1rem;
+  }
+  
+  .header-nav a {
+    font-size: 0.9rem;
+  }
+  
+  /* Hero */
+  .hero-text {
+    top: 42vh;
+    font-size: 18vw;
+    right: 5%;
+    left: 5%;
+  }
+  
+  .line2 {
+    margin-right: 30px;
+  }
+  
+  .line-bar {
+    width: 35vw;
+    height: 1px;
+    margin-bottom: 8vw;
+    margin-right: 3vw;
+  }
+  
+  .top-line-row {
+    top: -18vh;
+    left: 0;
+    right: 0;
+    padding: 0 5%;
+  }
+  
+  .top-line-row span {
+    font-size: 5vw;
+  }
+  
+  /* Projects */
+  .projects-section h1 {
+    font-size: 1.6rem;
+    margin: 3rem 0 1.5vh 1rem;
+  }
+  
+  .featured-project {
+    height: 45vh;
+    margin-bottom: 20vh;
+  }
+  
+  .project-card {
+    bottom: -12vh;
+    padding: 6px 10px;
+    right: 2.5rem;
+    left: 2.5rem;
+    max-width: calc(100% - 5rem);
+  }
+  
+  .project-title {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    line-height: 1.1;
+  }
+  
+  .project-description {
+    font-size: 0.65rem;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+  
+  .project-link {
+    font-size: 0.65rem;
+  }
+  
+  /* Gallery */
+  .gallery-image {
+    width: 85vw;
+    height: 35vh;
+  }
+  
+  .gallery-title {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+  
+  .voir-plus-button {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+  }
+  
+  /* About section */
+  .about-glass-content {
+    padding: 20px 15px;
+  }
+  
+  .about-text-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .about-text-content p {
+    font-size: 0.95rem;
+  }
+  
+  .about-link {
+    font-size: 1rem;
+  }
+}

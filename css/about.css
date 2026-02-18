@@ -1,0 +1,854 @@
+/* --- REPRISE DES STYLES COMMUNS (IDENTIQUES À TON PORTFOLIO) --- */
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  font-family: 'Harmond', sans-serif;
+  color: rgba(154, 232, 196, 0.8);
+  background: transparent;
+}
+
+/* Fond vidéo et header (IDENTIQUE à ton portfolio) */
+.common-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(15px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-texture-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/stripped\ glass.jpg");
+  background-repeat: repeat;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Header (IDENTIQUE à ton portfolio) */
+.main-header {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50vw;
+  padding: 0.6rem 3rem;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  z-index: 30;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(154, 232, 196, 0.25);
+  transition: all 0.6s ease;
+}
+
+.header-nav {
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+}
+
+.header-nav a {
+  color: rgba(154, 232, 196, 0.75);
+  text-decoration: none;
+  font-family: 'Harmond', sans-serif;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: rgba(154, 232, 196, 1);
+}
+
+.main-header.active {
+  top: 2vh;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Titre de la page (similaire à ton portfolio) */
+/* Titre principal de la page */
+/* --- ALIGNEMENT PARFAIT DES TITRES (H1/H2) --- */
+/* Conteneur du titre principal */
+.page-title {
+  position: relative;
+  min-height: 10vh;
+  padding-top: 15vh;
+ 
+  z-index: 20;
+  padding-left: 8vw;
+  max-width: 1200px; /* Limite la largeur comme tes sections */
+  margin: 0 auto; /* Centre le conteneur */
+}
+
+/* Titre principal (h1) */
+.page-title h1 {
+  font-size: 4rem; /* Même taille que les h2 */
+  text-transform: lowercase;
+  color: rgba(154, 232, 196, 0.8);
+  display: inline-block; /* Largeur ajustée au contenu */
+   /* Même padding que les h2 */
+  line-height: 1.2;
+  margin-bottom: 5vh;
+  
+}
+
+/* Sous-titres (h2) - déjà existants */
+.about-section h2,
+.skills-section h2,
+.recent-projects h2,
+.formation-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgba(154, 232, 196, 0.9);
+  text-transform: lowercase;
+   /* Même padding que le h1 */
+  line-height: 1.2;
+  display: inline-block; /* Alignement précis */
+  
+}
+
+/* Alignement des sections */
+.about-section,
+.skills-section,
+.recent-projects,
+.formation-section {
+  max-width: 1200px; /* Même largeur que .page-title */
+  margin: 0 auto; /* Centrage */
+  /* Même padding que .page-title */
+}
+
+/* --- STYLES SPÉCIFIQUES À LA PAGE ABOUT --- */
+/* Conteneur principal du contenu */
+.about-content {
+  position: relative;
+  z-index: 20;
+  padding: 40px 8vw;
+  max-width: 1200px;
+  margin: 0 auto;
+   display:flex;
+   flex-direction: column;
+   align-items: center; /* 3 lignes pour les 3 sections */
+  gap:0;
+}
+
+/* Section "À propos de moi" */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap:2vw;
+  margin-bottom: 80px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  margin-bottom: 20px;
+  color: rgba(154, 232, 196, 0.9);
+  text-transform: lowercase;
+}
+
+.about-text p {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: rgba(154, 232, 196, 0.85);
+}
+
+.about-visual {
+  flex: 0 0 300px;
+}
+
+.portrait-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(154, 232, 196, 0.3);
+}
+
+/* Section "Compétences" */
+.skills-section {
+  margin-top: 60px; /* Marge fixe au-dessus de la section */
+  padding-top: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-row: 3;
+  padding-bottom: 4vh;
+}
+
+.skills-section h2 {
+  margin-bottom: 40px;
+  color: rgba(154, 232, 196, 0.9);
+  text-transform: lowercase;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.skill-item {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(154, 232, 196, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(154, 232, 196, 0.4);
+  transform: translateY(-2px);
+}
+
+.skill-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: rgba(154, 232, 196, 0.95);
+  text-transform: lowercase;
+}
+
+.skill-item p {
+   font-family: 'Bodoni Moda', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(154, 232, 196, 0.8);
+}
+
+/* Section "Projets récents" */
+.recent-projects {
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 5vh;
+}
+
+.recent-projects h2 {
+  
+  margin-bottom: 20px;
+  color: rgba(154, 232, 196, 0.9);
+  text-transform: lowercase;
+}
+
+.recent-projects p {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(154, 232, 196, 0.85);
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: rgba(154, 232, 196, 0.2);
+  color: rgba(154, 232, 196, 0.9);
+  text-decoration: none;
+  border-radius: 30px;
+  border: 1px solid rgba(154, 232, 196, 0.4);
+  font-size: 1rem;
+  font-family: "Harmond", sans-serif;
+  transition: all 0.3s ease;
+  text-transform: lowercase;
+}
+
+.cta-button:hover {
+  background: rgba(154, 232, 196, 0.3);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(154, 232, 196, 0.2);
+}
+
+
+/* --- SECTION "MA FORMATION" (SOLUTION FINALE) --- */
+/* Conteneur principal en display: flex */
+.formation-section {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+   margin: 0 auto 0;
+  padding: 0;
+  min-height: 200px;
+  position: relative;
+  padding-bottom: 2vh;
+  
+
+}
+/* Conteneur supplémentaire pour une meilleure gestion */
+.formation-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+
+/* Conteneur du GIF ASCII (largeur fixe) */
+.ascii-gif-container {
+  flex: 0 0 10vw; /* Largeur fixe de 200px */
+  min-height: 60vh;
+  min-width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px; /* Espace entre le GIF et le texte */
+  margin-left: -6vw;
+  margin-top: -5vh;
+  contain: strict;
+}
+
+/* Style du GIF ASCII */
+.ascii-gif {
+  font-family: 'Courier New', monospace;
+  font-size: 0.3rem;
+  line-height: 1.1;
+  color: rgba(154, 232, 196, 0.9);
+  white-space: pre;
+  text-align: left;
+  margin: 0;
+}
+
+/* Conteneur du texte (ajusté pour éviter les débordements) */
+.formation-text {
+  flex: 1; /* Prend tout l'espace restant */
+  min-width: 50%; /* Largeur max = 100% - (200px GIF + 40px marge) */
+  text-align: right;;
+}
+
+/* Titre "Ma formation" */
+.formation-section h2 {
+  margin-top: 0;
+  margin-bottom: 1vh;
+  color: rgba(154, 232, 196, 0.9);
+  text-transform: lowercase;
+  font-family: 'Harmond', sans-serif;
+  text-align: right;
+}
+
+/* Paragraphes de la section */
+.formation-section p {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: rgba(154, 232, 196, 0.85);
+   text-align: right; /* Alignement à droite */
+  text-align-last: right; /* Dernière ligne alignée à droite */
+  text-justify: inter-word; /* Justification du texte */
+}
+
+/* Responsive : empile verticalement sur mobile */
+@media (max-width: 768px) {
+  .formation-section {
+    flex-direction: column;
+  }
+  .ascii-gif-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .formation-text {
+    max-width: 100%;
+  }
+}
+
+
+/* --- SECTION CV --- */
+.cv-section {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.cv-button-container {
+  margin-bottom: 20px;
+}
+
+/* Modal du CV (doit être présent) */
+.cv-preview-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.cv-preview-modal.visible {
+  display: flex; /* Important pour l'affichage */
+}
+
+/* Contenu du modal */
+.cv-preview-content {
+  width: 60vw;
+  max-width: 800px;
+height: 90vh;
+  max-height: 90vh;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 28px;
+  overflow: hidden;
+}
+
+.cv-preview-content embed {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  max-height: 700px;
+}
+
+.close-button {
+  background: rgba(154, 232, 196, 0.2);
+  color: rgba(154, 232, 196, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(154, 232, 196, 0.4);
+  color: white;
+}
+
+
+
+
+
+/* --- ANIMATIONS DE SLIDE POUR LES SOUS-TITRES --- */
+/* État initial (masqué et décalé) */
+.about-section h2,
+.skills-section h2,
+.recent-projects h2,
+.formation-section h2 {
+  opacity: 0;
+  transform: translateX(-50vw); /* Décalage initial à gauche */
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.4, 1); /* Courbe d'animation fluide */
+}
+
+/* Animation pour la section "Ma formation" (alignée à droite) */
+.formation-section h2 {
+  transform: translateX(30vw); /* Décalage initial à droite */
+}
+
+/* État visible (après animation) */
+.about-section h2.visible,
+.skills-section h2.visible,
+.recent-projects h2.visible,
+.formation-section h2.visible {
+  opacity: 1;
+  transform: translateX(0); /* Position finale */
+}
+
+/* Délai progressif pour chaque section */
+.about-section h2 { transition-delay: 0.2s; }
+.skills-section h2 { transition-delay: 1s; }
+.recent-projects h2 { transition-delay: 1.2s; }
+.formation-section h2 { transition-delay: 0.5s; }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .about-visual {
+    flex: none;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+/* --- STYLE POUR L'IMAGE ASCII (PORTRAIT) --- */
+.ascii-portrait {
+  font-family: 'Courier New', monospace; /* Police monospace pour l'ASCII */
+  font-size: 0.4rem; /* Taille ajustable selon la complexité de ton ASCII */
+  line-height: 1.1;
+  color: rgba(154, 232, 196, 0.9); /* Couleur turquoise (ton thème) */
+  white-space: pre; /* Conserve les espaces et sauts de ligne */
+  text-align: center; /* Centrage du portrait */
+  padding: 20px;
+  width: 20vw; /* Largeur fixe (comme ton image actuelle) */
+  height: 34vh; /* Hauteur fixe (format carré pour l'ASCII) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Évite les débordements */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ascii-portrait {
+    width: 100%;
+    height: auto;
+    font-size: 8px; /* Réduction de la taille sur mobile */
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE VERSION
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Header */
+  .main-header {
+    width: 90vw;
+    padding: 0.5rem 1.5rem;
+  }
+  
+  .header-nav {
+    gap: 4vw;
+  }
+  
+  .header-nav a {
+    font-size: 1rem;
+  }
+  
+  /* Page title */
+  .page-title {
+    padding-left: 1.5rem;
+    padding-top: 10vh;
+    min-height: auto;
+  }
+  
+  .page-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3vh;
+  }
+  
+  /* Content */
+  .about-content {
+    padding: 25px 1.5rem;
+  }
+  
+  /* About section */
+  .about-section {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 50px;
+  }
+  
+  .about-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .about-visual {
+    flex: none;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  /* Skills */
+  .skills-section {
+    margin-top: 30px;
+    padding-top: 15px;
+    padding-bottom: 3vh;
+  }
+  
+  .skills-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .skill-item {
+    padding: 15px;
+  }
+  
+  .skill-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .skill-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  /* Recent projects */
+  .recent-projects {
+    margin-bottom: 60px;
+    margin-top: 3vh;
+  }
+  
+  .recent-projects h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .recent-projects p {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+  
+  .cta-button {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    max-width: 90%;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  
+  /* CV Section */
+  .cv-section {
+    margin-bottom: 50px;
+    padding: 0 1rem;
+    overflow: visible;
+  }
+  
+  .cv-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Formation */
+  .formation-section {
+    flex-direction: column;
+  }
+  
+  .formation-wrapper {
+    flex-direction: column;
+  }
+  
+  .ascii-gif-container {
+    min-width: 100%;
+    min-height: auto;
+    height: auto;
+    margin-left: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    contain: none;
+    overflow: visible;
+    order: 2;
+  }
+  
+  .ascii-gif {
+    font-size: 0.18rem;
+    overflow: visible;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .formation-text {
+    min-width: 100%;
+    text-align: right;
+    order: 1;
+  }
+  
+  .formation-section h2 {
+    text-align: right;
+    font-size: 1.8rem;
+  }
+  
+  .formation-section p {
+    text-align: right;
+    text-align-last: right;
+    font-size: 0.95rem;
+  }
+  
+  /* CV Modal */
+  .cv-preview-content {
+    width: 95vw;
+    padding: 15px;
+    max-height: 80vh;
+  }
+  
+  .cv-preview-content embed {
+    min-height: 400px;
+  }
+}
+
+/* --- SMALL MOBILE (max 480px) --- */
+@media (max-width: 480px) {
+  /* Header */
+  .main-header {
+    width: 95vw;
+    padding: 0.4rem 1rem;
+  }
+  
+  .header-nav a {
+    font-size: 0.9rem;
+  }
+  
+  /* Page title */
+  .page-title {
+    padding-left: 1rem;
+    padding-top: 8vh;
+  }
+  
+  .page-title h1 {
+    font-size: 2rem;
+    margin-bottom: 2vh;
+  }
+  
+  /* Content */
+  .about-content {
+    padding: 20px 1rem;
+  }
+  
+  /* About section */
+  .about-section {
+    margin-bottom: 40px;
+  }
+  
+  .about-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .about-text p {
+    font-size: 0.9rem;
+  }
+  
+  /* Skills */
+  .skills-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .skill-item {
+    padding: 12px;
+  }
+  
+  .skill-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .skill-item p {
+    font-size: 0.85rem;
+  }
+  
+  /* Recent projects */
+  .recent-projects h2 {
+    font-size: 1.5rem;
+  }
+  
+  .recent-projects p {
+    font-size: 0.9rem;
+  }
+  
+  .cta-button {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    max-width: 85%;
+  }
+  
+  /* CV Section */
+  .cv-section {
+    margin-bottom: 40px;
+    padding: 0 0.5rem;
+  }
+  
+  /* Formation */
+  .formation-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .formation-section p {
+    font-size: 0.9rem;
+  }
+  
+  .ascii-gif-container {
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+  }
+  
+  .ascii-gif {
+    font-size: 0.14rem;
+    overflow: visible;
+  }
+  
+  /* CV Modal */
+  .cv-preview-content {
+    padding: 10px;
+  }
+  
+  .close-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  /* ASCII Portrait */
+  .ascii-portrait {
+    font-size: 5px;
+    padding: 10px;
+  }
+}

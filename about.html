@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Manon Valin-Barraud</title>
+  <!-- Police Harmond (identique à ton portfolio) -->
+  <link href="https://fonts.googleapis.com/css2?family=Harmond:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <!-- Lien vers ton CSS dédié -->
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+  <!-- Fond vidéo et header (IDENTIQUE à ton index.html et projets.html) -->
+  <div class="common-background">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="assets/videos/fond-nouveau-2.mp4" type="video/mp4">
+    </video>
+    <div class="glass"></div>
+    <div class="glass-texture-header"></div>
+  </div>
+
+  <!-- Header (IDENTIQUE à ton index.html et projets.html) -->
+  <header class="main-header">
+    <nav class="header-nav">
+      <a href="index.html">accueil</a>
+      <a href="projets.html">projets</a>
+      <a href="contact.html">contact</a>
+    </nav>
+  </header>
+
+  <!-- Titre de la page (structure similaire à ton portfolio) -->
+  <section class="page-title">
+    <h1>about</h1>
+  </section>
+
+  <!-- Contenu spécifique à la page About -->
+  <main class="about-content">
+    <!-- Section "À propos de moi" -->
+    <section class="about-section">
+      <div class="about-text">
+        <h2>à propos de moi</h2>
+        <p>
+          Actuellement en 2e année de DNMADE Numérique à l’ENSAAMA, je suis passionnée par le motion 
+          design et la 3D, des disciplines qui me permettent de donner vie aux images et de créer des
+           univers visuels immersifs. Au travers de mes études, j’explore également le webdesign et le 
+           jeu vidéo, des domaines qui enrichissent ma pratique et mon regard sur la création numérique.
+        </p>
+        <p>
+          Curieuse et touche-à-tout, j’aime expérimenter différentes formes d’expression, du DJ-ing 
+          au pole dance, en passant par la peinture à l’huile, et le cinéma nourrit également mon inspiration.
+        </p>
+      </div>
+
+      <!-- Image/illustration (optionnelle) -->
+  <!-- Remplace la section "about-visual" existante -->
+<div class="about-visual">
+  <pre class="ascii-portrait" id="asciiPortrait"></pre>
+</div>
+
+    </section>
+
+<!-- Dans la section "Ma formation" (remplace le contenu existant) -->
+<section class="about-section formation-section">
+  <div class="formation-wrapper"> <!-- NOUVEAU : Conteneur flexible -->
+    <div class="ascii-gif-container"> <!-- Conteneur pour le GIF ASCII -->
+      <pre class="ascii-gif" id="asciiGif"></pre>
+    </div>
+    <div class="formation-text">
+      <h2>ma formation</h2>
+      <p>
+    Le <strong>DNMADE Numérique</strong>, diplôme grade Licence, dispensé à l’ENSAAMA (École nationale 
+    supérieure des arts appliqués et des métiers d'art), forme à la conception et à la réalisation 
+    d’environnements numériques innovants. Issu du graphisme numérique, le parcours aborde le motion
+     design 2D/3D, la vidéo, le web, les interfaces (sites, applications, objets connectés) et les 
+     dispositifs interactifs. La formation associe culture artistique et design, humanités et 
+     enseignements techniques autour des outils numériques, de la 3D et de la programmation. 
+     Elle développe une approche créative et critique de l’image, fixe ou animée, et des narrations 
+     interactives. Elle prépare aux métiers de la création numérique : designer d’interfaces, designer
+      d’interactions, motion designer ou directeur artistique.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Section "Compétences" -->
+    <section class="skills-section">
+      <h2>compétences</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h3>Design 3D</h3>
+          <p>Modélisation, animation (Blender), texturing (Substance Painter), Polycam</p>
+        </div>
+        <div class="skill-item">
+          <h3>Développement Web</h3>
+          <p>HTML, CSS, JavaScript, P5js, Aframe</p>
+        </div>
+        <div class="skill-item">
+          <h3>Unity</h3>
+          <p>Développement de jeux 2D/3D, C#, VR/AR</p>
+        </div>
+        <div class="skill-item">
+          <h3>Graphisme</h3>
+          <p>Photoshop, Illustrator, Indesign, Figma</p>
+        </div>
+         <div class="skill-item">
+          <h3>Vidéo</h3>
+          <p>Premiere Pro, After Effects</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bouton CV (à placer JUSTE APRES la section "Compétences") -->
+<!-- Bouton CV (doit avoir l'ID "cv-toggle") -->
+<button id="cv-toggle" class="cta-button">voir mon cv</button>
+
+<!-- Modal de prévisualisation (doit avoir l'ID "cv-preview") -->
+<div id="cv-preview" class="cv-preview-modal">
+  <div class="cv-preview-content">
+    <embed id="cv-pdf" src="assets/images/cv-design.pdf" type="application/pdf" />
+    <div class="cv-actions">
+      <a id="cv-download" href="assets/images/cv-design.pdf" download="CV_Manon_Valin-Barraud.pdf" class="cta-button">
+        télécharger
+      </a>
+      <button id="cv-close" class="close-button">×</button>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Section "Projets récents" (lien vers ta page projets) -->
+    <section class="recent-projects">
+      <h2>projets récents</h2>
+      <p>
+        Découvre mes derniers projets sur la page dédiée,
+        où je partage mes explorations en design 3D, développement web et jeux vidéo.
+      </p>
+      <a href="projets.html" class="cta-button">voir mes projets</a>
+    </section>
+  </main>
+
+  <!-- Lien vers ton fichier JS dédié -->
+  <script src="js/about.js"></script>
+</body>
+</html>
