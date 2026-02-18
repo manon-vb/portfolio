@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Harmond';
-  src: url('../assets/fonts/Harmond-ExtraBoldExpanded.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: expanded;
-  font-display: swap;
-}
-
 /* --- REPRISE DES STYLES COMMUNS (IDENTIQUES À TON PORTFOLIO) --- */
 /* Reset et base */
 * {
@@ -19,7 +10,7 @@ html, body {
   width: 100%;
   height: auto;
   overflow-x: hidden;
-  font-family: 'Harmond', sans-serif;
+  font-family: "Harmond ExtBd Exp", sans-serif;
   color: rgba(154, 232, 196, 0.8);
   background: transparent;
 }
