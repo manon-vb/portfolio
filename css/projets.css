@@ -97,7 +97,7 @@ html, body {
   color: rgba(154, 232, 196, 0.75);
   text-decoration: none;
   font-family: "Harmond ExtBd Exp", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
@@ -319,9 +319,12 @@ html, body {
 /* Style pour le texte de l'overlay */
 .project-card-overlay h3 {
   margin: 0;
-  font-size: 3.5rem;
+  font-size: 1.6rem;
   font-weight: 500;
   text-transform: lowercase;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  transform: scaleY(1.15);
   color: rgba(154, 232, 196, 1); /* Couleur turquoise pour correspondre à ton thème */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour meilleure lisibilité */
 }
@@ -1191,11 +1194,13 @@ html, body {
   padding: 8px 15px; /* Espacement interne */
   background: transparent; /* Fond transparent */
   color: rgba(154, 232, 196, 0.8);
-  font-size: 1.1rem; /* Taille de police ajustée */
+  font-size: 0.8rem; /* Taille de police ajustée */
   text-decoration: none;
   transition: all 0.3s ease;
   pointer-events: inherit;
-  line-height: 1.4;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  transform: scaleY(1.15);
   text-align: right;
   border-radius: 8px; /* Coins arrondis pour les liens */
 }
@@ -1330,6 +1335,9 @@ html, body {
     padding: 7px 12px;
     font-size: 0.95rem;
     border-radius: 6px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    transform: scaleY(1.15);
   }
 }
 
@@ -1346,7 +1354,9 @@ html, body {
   .vertical-nav-link {
     padding: 6px 10px;
     font-size: 0.85rem;
-    line-height: 1.3;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    transform: scaleY(1.15);
     border-radius: 6px;
   }
   
@@ -1880,7 +1890,8 @@ html, body {
   }
   
   .header-nav a {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
+    line-height: 1.6;
   }
   
   /* Page title */
@@ -1904,8 +1915,10 @@ html, body {
   
   .vertical-nav-link {
     padding: 0.25rem 0.6rem;
-    font-size: 0.7rem;
-    line-height: 1.1;
+    font-size: 0.6rem;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    transform: scaleY(1.15);
   }
   
   /* 3D Carousel */
@@ -1941,11 +1954,14 @@ html, body {
   }
   
   .project-card-overlay h3 {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    transform: scaleY(1.15);
   }
   
   .project-card-overlay p.project-category-link {
-    font-size: 0.9rem;
+    font-size: 0.65rem;
   }
   
   /* Project category */
@@ -1960,6 +1976,7 @@ html, body {
   .project-category h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
+    margin-left: 1rem;
   }
   
   /* Full width carousel */
