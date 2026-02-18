@@ -1,8 +1,9 @@
 @font-face {
   font-family: 'Harmond';
   src: url('../assets/fonts/Harmond-ExtraBoldExpanded.otf') format('opentype');
-  font-weight: 800;
+  font-weight: normal;
   font-style: normal;
+  font-stretch: expanded;
   font-display: swap;
 }
 
