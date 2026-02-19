@@ -273,7 +273,7 @@ body, html {
   height: 85vh;
   margin: 0 calc(-50vw + 50%);
   left: 0;
-  overflow: visible !important; /* ← Permet d'afficher les éléments qui dépassent */
+  overflow: visible;
   margin-bottom: 26vh;
 }
 
@@ -328,6 +328,7 @@ body, html {
   position: relative;
   width: 100%; /* 100% du conteneur parent */
   height: 100%;
+  overflow: hidden;
 }
 
 /* Image/Video pleine largeur */
@@ -670,20 +671,23 @@ font-family: 'Bodoni Moda', serif;
 .about-section-new {
   position: relative;
   width: 100%;
-  min-height: 80vh; /* Hauteur minimale augmentée */
+  min-height: 0; /* Commence à 0 pour ne pas prendre de place */
+  max-height: 0;
   margin: 0 auto;
   overflow: hidden;
   z-index: 15;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  opacity: 0;
+  pointer-events: none;
   visibility: hidden;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  transition: opacity 0.6s ease, visibility 0.6s ease, min-height 0.6s ease, max-height 0.6s ease;
 }
 
 .about-section-new.visible {
+  min-height: 80vh;
+  max-height: none;
   opacity: 1 !important;
   pointer-events: auto !important;
   visibility: visible;

@@ -80,7 +80,7 @@
       <!-- Tes images existantes (exemple) -->
       <!-- Exemple pour un item du carousel 3D -->
 <div class="carousel-3d-item">
-  <img src="assets/images/image test 2.jpg" alt="Catégorie - 3D">
+  <img src="assets/images/3d/scène éclairée side.png" alt="Catégorie - 3D">
   <div class="project-card-overlay" onclick="scrollToCategory('3d')">
     <h3>3D</h3>
     <p class="project-category-link">→ voir plus</p> <!-- NOUVEAU : Flèche et texte -->
@@ -88,7 +88,9 @@
 </div>
 
 <div class="carousel-3d-item">
-  <img src="assets/images/image test 2.jpg" alt="Catégorie - Motion">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+    <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/py95p3?autoplay=1&muted=1" class="streamable-iframe" style="border:none; position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; transform: translate(-50%, -50%);"></iframe>
+  </div>
   <div class="project-card-overlay" onclick="scrollToCategory('motion')">
     <h3>Motion</h3>
     <p class="project-category-link">→ voir plus</p> <!-- NOUVEAU : Flèche et texte -->
@@ -104,7 +106,7 @@
 </div>
 
 <div class="carousel-3d-item">
-  <img src="assets/images/image test 2.jpg" alt="Catégorie - Graphisme">
+  <img src="assets/images/graphisme/flyer mockup.png" alt="Catégorie - Graphisme">
   <div class="project-card-overlay" onclick="scrollToCategory('graphisme')">
     <h3>Graphisme</h3>
     <p class="project-category-link">→ voir plus</p> <!-- NOUVEAU : Flèche et texte -->
@@ -122,13 +124,13 @@
   </section>
 
 <!-- Section 1 : Catégorie "3D" -->
-<section class="project-category" data-category="3d">
+<section class="project-category" data-category="3d" id="3d">
   <div class="project-category-content"><h2>3D</h2>
   </div>
   
 
   <!-- Carousel 2D pleine largeur (projet 1) -->
- <div class="full-width-carousel-wrapper">
+ <div class="full-width-carousel-wrapper" id="scene-eclairee">
   <div class="full-width-carousel">
      <div class="carousel-2d-buttons"> <!-- NOUVEAU conteneur pour les boutons -->
     <button class="carousel-2d-prev">←</button>
@@ -198,12 +200,12 @@
         <div class="carousel-2d">
           <div class="carousel-2d-slide">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
-              <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/452wo1?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+              <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/452wo1?autoplay=0&muted=1" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
             </div>
           </div>
           <div class="carousel-2d-slide">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
-              <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/1t0ifs?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+              <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/1t0ifs?autoplay=0&muted=1" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
             </div>
           </div>
         </div>
@@ -213,7 +215,7 @@
 </section>
 
 <!-- Section 2 : Catégorie "Motion" -->
-<section class="project-category" data-category="motion">
+<section class="project-category" data-category="motion" id="motion">
   <div class="project-category-content"><h2>Motion</h2>
   </div>
   
@@ -259,7 +261,7 @@
     </div>
 
     <!-- Conteneur pour image paysage + project-info (40% largeur) -->
-    <div class="landscape-content-wrapper">
+    <div class="landscape-content-wrapper" id="bestioles">
       <!-- Image paysage (50% hauteur) -->
       <div class="landscape-image-container">
         <video class="carousel-video" autoplay muted loop playsinline>
@@ -382,7 +384,7 @@
 </section>
 
 <!-- Section 4 : Catégorie "Graphisme" -->
-<section class="project-category" data-category="graphisme">
+<section class="project-category" data-category="graphisme" id="graphisme">
   <div class="project-category-content"><h2>Graphisme</h2>
   </div>
   
@@ -397,7 +399,7 @@
     <div class="carousel-2d">
       <div class="carousel-2d-slide">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
-          <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/zb11p1?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+          <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/zb11p1?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 62%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
         </div>
       </div>
     </div>
@@ -444,7 +446,7 @@
   </div>
 
   <!-- Carousel paysage (en dessous, largeur limitée) -->
-  <div class="landscape-carousel-section">
+  <div class="landscape-carousel-section" id="flyer">
     <div class="landscape-carousel-wrapper">
       <div class="landscape-carousel">
         <div class="carousel-2d-buttons">
