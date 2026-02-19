@@ -7,18 +7,25 @@
   <!-- Preconnect for faster font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preconnect for Streamable embeds -->
+  <link rel="preconnect" href="https://streamable.com">
+  <link rel="dns-prefetch" href="https://streamable.com">
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/projets.css">
   <link href="https://db.onlinewebfonts.com/c/25e82ef2099b5535c915e15be3d3b754?family=Harmond+ExtBd+Exp" rel="stylesheet" type="text/css"/>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
   <!-- Pré-chargement des vidéos -->
    <!-- fond -->
-<link rel="preload" href="assets/videos/fond-nouveau.mp4" as="video" type="video/mp4">
-<link rel="preload" href="assets/videos/fond-nouveau-2.mp4" as="video" type="video/mp4">
-<link rel="preload" href="assets/videos/fond-nouveau-3.mp4" as="video" type="video/mp4">
+<link rel="preload" href="assets/videos/fond-nouveau-fonce-projets.mp4" as="video" type="video/mp4">
 <!--3d-->
 <link rel="preload" href="assets/images/3d/what a mess iso video.mp4" as="video" type="video/mp4">
 <link rel="preload" href="assets/images/3d/what-a-mess inside.mp4" as="video" type="video/mp4">
+<link rel="preload" href="assets/images/3d/scène éclairée.png" as="image" type="image/png">
+<link rel="preload" href="assets/images/3d/scène éclairée side.png" as="image" type="image/png">
+<link rel="preload" href="assets/images/3d/viewport view.png" as="image" type="image/png">
+<link rel="preload" href="assets/images/3d/barbie eco.png" as="image" type="image/png">
+<link rel="preload" href="assets/images/3d/what a mess iso 2.png" as="image" type="image/png">
+<link rel="preload" href="assets/images/3d/what a mess iso.png" as="image" type="image/png">
 <!--animation-->
 <link rel="preload" href="assets/images/animation/bestioles.mp4" as="video" type="video/mp4">
 <link rel="preload" href="assets/images/animation/La dame du métro.mp4" as="video" type="video/mp4">
@@ -30,8 +37,8 @@
 <body>
   <!-- Fond vidéo et header (identique à ton index.html) -->
   <div class="common-background">
-    <video autoplay muted loop playsinline class="background-video">
-      <source src="assets/videos/fond-nouveau-3.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline class="background-video" preload="auto">
+      <source src="assets/videos/fond-nouveau-fonce-projets.mp4" type="video/mp4">
     </video>
     <div class="glass"></div>
     <div class="glass-texture-header"></div>
@@ -129,29 +136,24 @@
      </div>
     <div class="carousel-2d">
        <div class="carousel-2d-slide">
-        <img src="assets/images/3d/what a mess iso.png" alt="VR - What a mess! vue iso 1">
-      </div>
-     <div class="carousel-2d-slide">
-        <video class="carousel-video" autoplay muted loop playsinline>
-          <source src="assets/images/3d/what-a-mess inside.mp4" type="video/mp4" alt="VR - What a mess! inside video">
-          Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
-        </video>
+        <img src="assets/images/3d/scène éclairée.png" alt="3d- scène intérieur">
       </div>
       <div class="carousel-2d-slide">
-        <img src="assets/images/3d/what a mess iso 2.png" alt="VR - What a mess! vue iso 2">
+        <img src="assets/images/3d/scène éclairée side.png" alt="3d- scène intérieur">
       </div>
-      <div class="carousel-2d-slide">
-        <video class="carousel-video" autoplay muted loop playsinline>
-          <source src="assets/images/3d/what a mess iso video.mp4" type="video/mp4" alt="VR - What a mess! iso video">
-          Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
-        </video>
+       <div class="carousel-2d-slide">
+        <img src="assets/images/3d/viewport view.png" alt="3d- scène viewport blender">
       </div>
+       <div class="carousel-2d-slide portrait-fit-slide">
+        <img src="assets/images/3d/barbie eco.png" alt="3d- personnage en cours de texturing" class="portrait-fit-image">
+      </div>
+      
   </div>
  </div>
  </div>
   <div class="project-category-content">  
  <div class="project-info">
-      <h3>What a mess - environnement VR</h3>
+      <h3>Assets 3D</h3>
       <p>Description détaillée du projet 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
   </div>
@@ -195,15 +197,14 @@
         </div>
         <div class="carousel-2d">
           <div class="carousel-2d-slide">
-            <video class="carousel-video" autoplay muted loop playsinline>
-              <source src="assets/images/3d/what-a-mess inside.mp4" type="video/mp4">
-            </video>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+              <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/452wo1?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+            </div>
           </div>
           <div class="carousel-2d-slide">
-            <video class="carousel-video" autoplay muted loop playsinline>
-              <source src="assets/images/3d/what a mess iso video.mp4" type="video/mp4">
-              Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
-            </video>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+              <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/1t0ifs?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -226,13 +227,12 @@
      </div>
     <div class="carousel-2d">
       <div class="carousel-2d-slide">
-        <video class="carousel-video" autoplay muted loop playsinline>
-          <source src="assets/images/animation/VALIN_Manon_Tecla.mp4" type="video/mp4">
-          Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
-        </video>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+          <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/py95p3?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+        </div>
       </div>
-      <div class="carousel-2d-slide">
-        <img src="assets/images/image test.jpg" alt="Projet 3 - Détail">
+       <div class="carousel-2d-slide">
+        <img src="assets/images/animation/tecla recherches.png" alt="recherches préliminaires au projet de motion sur la ville de Tecla">
       </div>
     </div>
   </div>
@@ -252,7 +252,7 @@
       <div class="portrait-carousel">
         <div class="portrait-carousel-inner">
           <div class="portrait-carousel-slide active">
-            <img src="assets/images/image test.jpg" alt="screen after effects - projet motion">
+            <img src="assets/images/animation/wip.png" alt="after effects - projets motion">
           </div>
         </div>
       </div>
@@ -270,6 +270,8 @@
 
       <!-- Project-info (50% hauteur) -->
       <div class="project-info">
+        <h3>Titre du projet</h3>
+        <p>Description du projet...</p>
         <h3>Titre du projet</h3>
         <p>Description du projet...</p>
       </div>
@@ -290,6 +292,11 @@
               <source src="assets/images/animation/La dame du métro.mp4" type="video/mp4">
               Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
             </video>
+          </div>
+          <div class="carousel-2d-slide">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+              <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/q06upi?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -389,10 +396,9 @@
      </div>
     <div class="carousel-2d">
       <div class="carousel-2d-slide">
-        <video src="assets/images/graphisme/vidéo finale anim.mp4" autoplay muted loop playsinline></video>
-      </div>
-      <div class="carousel-2d-slide">
-        <img src="assets/images/image test.jpg" alt="Projet 7 - Détail">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+          <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/zb11p1?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -412,7 +418,7 @@
       <div class="portrait-carousel">
         <div class="portrait-carousel-inner">
           <div class="portrait-carousel-slide active">
-            <img src="assets/images/image test.jpg" alt="placeholder">
+            <img src="assets/images/graphisme/emojis.png" alt="emojis renard réalisés sur Adobe Illustrator">
           </div>
         </div>
       </div>
@@ -422,11 +428,15 @@
     <div class="landscape-content-wrapper">
       <!-- Image paysage (50% hauteur) -->
       <div class="landscape-image-container">
-        <img src="assets/images/image test.jpg" alt="placeholder">
+        <img src="assets/images/graphisme/figma.png" alt="recherches de logotypes et charte graphique pour marque fictive">
       </div>
 
       <!-- Project-info (50% hauteur) -->
       <div class="project-info">
+        <h3>Titre du projet</h3>
+        <p>Description du projet...</p>
+        <h3>Titre du projet</h3>
+        <p>Description du projet...</p>
         <h3>Titre du projet</h3>
         <p>Description du projet...</p>
       </div>
@@ -549,6 +559,15 @@
 
 
   <!-- Lien vers tes fichiers JS (à placer avant la fermeture de </body>) -->
+  <script>
+    // Forcer la lecture de la vidéo de fond
+    document.addEventListener('DOMContentLoaded', function() {
+      const bgVideo = document.querySelector('.background-video');
+      if (bgVideo) {
+        bgVideo.play().catch(err => console.log('Autoplay prevented:', err));
+      }
+    });
+  </script>
   <script src="js/projets.js"></script>
 </body>
 </html>

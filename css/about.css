@@ -393,6 +393,49 @@ html, body {
   text-justify: inter-word; /* Justification du texte */
 }
 
+/* --- TABLET PORTRAIT (769px - 1024px) --- */
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* ASCII container - extra wide to prevent any cropping */
+  .ascii-gif-container {
+    flex: 0 0 5vw;
+    min-width: 45vw;
+    max-width: 48vw;
+    margin-left: 0;
+    overflow: visible;
+  }
+  
+  .ascii-gif {
+    font-size: 0.2rem;
+    line-height: 0.9;
+    overflow: visible;
+  }
+  
+  /* Formation text */
+  .formation-text {
+    min-width: 42%;
+  }
+  
+  .formation-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .formation-section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  /* ASCII portrait - moderately sized container */
+  .ascii-portrait {
+    font-size: 0.28rem;
+    padding: 15px;
+    height: 34vh;
+    overflow: visible;
+    width: auto;
+    max-width: none;
+    min-width: 38vw;
+  }
+}
+
 /* Responsive : empile verticalement sur mobile */
 @media (max-width: 768px) {
   .formation-section {

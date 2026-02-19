@@ -231,6 +231,7 @@ fullWidthCarousels.forEach((carousel) => {
     let isVideoPlaying = false;
     let currentVideo = null;
     let currentHandlers = {};
+    let iframeTimer = null;
 
     // Configuration initiale (inchangée)
     slidesContainer.style.display = 'flex';
@@ -281,6 +282,12 @@ fullWidthCarousels.forEach((carousel) => {
 
     // Vérifie le slide courant
     function checkCurrentSlide() {
+      // Clear any existing iframe timer
+      if (iframeTimer) {
+        clearTimeout(iframeTimer);
+        iframeTimer = null;
+      }
+
       if (currentVideo) {
         currentVideo.removeEventListener('play', currentHandlers.onPlay);
         currentVideo.removeEventListener('ended', currentHandlers.onEnded);
@@ -288,10 +295,24 @@ fullWidthCarousels.forEach((carousel) => {
       }
 
       const video = slides[currentSlide].querySelector('video');
+      const iframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+      
       if (video) {
         currentVideo = video;
         currentHandlers = setupVideo(video);
         isVideoPlaying = !video.paused;
+      } else if (iframe) {
+        // Pour les iframes, démarrer un timer basé sur la durée estimée de la vidéo
+        currentVideo = null;
+        isVideoPlaying = false;
+        
+        // Obtenir la durée depuis l'attribut data-duration ou utiliser 30 secondes par défaut
+        const duration = parseInt(iframe.getAttribute('data-duration')) || 30;
+        
+        // Après la durée de la vidéo, redémarrer l'auto-slide
+        iframeTimer = setTimeout(() => {
+          startAutoSlide();
+        }, duration * 1000);
       } else {
         currentVideo = null;
         isVideoPlaying = false;
@@ -300,16 +321,52 @@ fullWidthCarousels.forEach((carousel) => {
 
     function nextSlide(force = false) {
       if (isVideoPlaying && !force) return;
+      
+      // Clear iframe timer if exists
+      if (iframeTimer) {
+        clearTimeout(iframeTimer);
+        iframeTimer = null;
+      }
+      
+      // Arrêter la vidéo iframe si on quitte ce slide
+      const currentIframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+      if (currentIframe) {
+        // Recharger l'iframe pour arrêter la vidéo
+        const src = currentIframe.src;
+        currentIframe.src = '';
+        currentIframe.src = src;
+      }
+      
+      isVideoPlaying = false;
       currentSlide = (currentSlide + 1) % slides.length;
       updateSlide();
       checkCurrentSlide();
+      startAutoSlide();
     }
 
     function prevSlide(force = false) {
       if (isVideoPlaying && !force) return;
+      
+      // Clear iframe timer if exists
+      if (iframeTimer) {
+        clearTimeout(iframeTimer);
+        iframeTimer = null;
+      }
+      
+      // Arrêter la vidéo iframe si on quitte ce slide
+      const currentIframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+      if (currentIframe) {
+        // Recharger l'iframe pour arrêter la vidéo
+        const src = currentIframe.src;
+        currentIframe.src = '';
+        currentIframe.src = src;
+      }
+      
+      isVideoPlaying = false;
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       updateSlide();
       checkCurrentSlide();
+      startAutoSlide();
     }
 
     function updateSlide() {
@@ -319,7 +376,11 @@ fullWidthCarousels.forEach((carousel) => {
     function startAutoSlide() {
       if (!isVideoPlaying) {
         clearInterval(slideInterval);
-        slideInterval = setInterval(() => nextSlide(), 3000);
+        // Ne pas démarrer l'auto-slide si on est sur un iframe (Streamable)
+        const hasIframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+        if (!hasIframe) {
+          slideInterval = setInterval(() => nextSlide(), 3000);
+        }
       }
     }
 
@@ -335,6 +396,40 @@ fullWidthCarousels.forEach((carousel) => {
     carousel.addEventListener('mouseenter', stopAutoSlide);
     carousel.addEventListener('mouseleave', () => {
       if (!isVideoPlaying) startAutoSlide();
+    });
+
+    // Arrêter les vidéos lors du scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      // Améliorer les performances avec les iframes
+      document.documentElement.classList.add('scrolling');
+      
+      clearTimeout(scrollTimeout);
+      
+      // Arrêter les vidéos et iframes immédiatement
+      slides.forEach(slide => {
+        const video = slide.querySelector('video');
+        const iframe = slide.querySelector('iframe.streamable-iframe');
+        
+        if (video && !video.paused) {
+          video.pause();
+        }
+        if (iframe) {
+          const src = iframe.src;
+          iframe.src = '';
+          iframe.src = src;
+        }
+      });
+      
+      isVideoPlaying = false;
+      stopAutoSlide();
+      
+      // Redémarrer l'auto-slide après le scroll
+      scrollTimeout = setTimeout(() => {
+        document.documentElement.classList.remove('scrolling');
+        checkCurrentSlide();
+        startAutoSlide();
+      }, 500);
     });
 
     // Initialisation
@@ -388,6 +483,8 @@ fullWidthCarousels.forEach((carousel) => {
     if (!slidesContainer || slides.length === 0) return;
 
     let currentSlide = 0;
+    let slideInterval;
+    let iframeTimer = null;
 
     // Configuration initiale
     slidesContainer.style.display = 'flex';
@@ -396,24 +493,97 @@ fullWidthCarousels.forEach((carousel) => {
       slide.style.width = `${100 / slides.length}%`;
     });
 
+    function checkCurrentSlide() {
+      // Clear any existing iframe timer
+      if (iframeTimer) {
+        clearTimeout(iframeTimer);
+        iframeTimer = null;
+      }
+
+      const iframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+      
+      if (iframe) {
+        // Pour les iframes, démarrer un timer basé sur la durée estimée de la vidéo
+        const duration = parseInt(iframe.getAttribute('data-duration')) || 60;
+        
+        // Après la durée de la vidéo, redémarrer l'auto-slide
+        iframeTimer = setTimeout(() => {
+          startAutoSlide();
+        }, duration * 1000);
+      }
+    }
+
+    function startAutoSlide() {
+      clearInterval(slideInterval);
+      // Ne pas démarrer l'auto-slide si on est sur un iframe (Streamable)
+      const hasIframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+      if (!hasIframe) {
+        slideInterval = setInterval(() => nextSlide(), 3000);
+      }
+    }
+
+    function stopAutoSlide() {
+      clearInterval(slideInterval);
+    }
+
     function goToSlide(index) {
       currentSlide = index;
       slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
 
-    function nextSlide() {
+    function nextSlide(force = false) {
+      // Clear iframe timer if exists
+      if (iframeTimer) {
+        clearTimeout(iframeTimer);
+        iframeTimer = null;
+      }
+      
+      // Arrêter la vidéo iframe si on quitte ce slide
+      const currentIframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+      if (currentIframe) {
+        const src = currentIframe.src;
+        currentIframe.src = '';
+        currentIframe.src = src;
+      }
+      
       currentSlide = (currentSlide + 1) % slides.length;
       goToSlide(currentSlide);
+      checkCurrentSlide();
+      startAutoSlide();
     }
 
-    function prevSlide() {
+    function prevSlide(force = false) {
+      // Clear iframe timer if exists
+      if (iframeTimer) {
+        clearTimeout(iframeTimer);
+        iframeTimer = null;
+      }
+      
+      // Arrêter la vidéo iframe si on quitte ce slide
+      const currentIframe = slides[currentSlide].querySelector('iframe.streamable-iframe');
+      if (currentIframe) {
+        const src = currentIframe.src;
+        currentIframe.src = '';
+        currentIframe.src = src;
+      }
+      
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       goToSlide(currentSlide);
+      checkCurrentSlide();
+      startAutoSlide();
     }
 
     // Écouteurs des boutons
-    nextButton.addEventListener('click', nextSlide);
-    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', () => nextSlide(true));
+    prevButton.addEventListener('click', () => prevSlide(true));
+
+    // Comportement au survol
+    carousel.addEventListener('mouseenter', stopAutoSlide);
+    carousel.addEventListener('mouseleave', startAutoSlide);
+
+    // Initialisation
+    checkCurrentSlide();
+    startAutoSlide();
   });
 
 
