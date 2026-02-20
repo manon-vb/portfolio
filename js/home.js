@@ -199,16 +199,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===== ANIMATION DE LA SECTION "À PROPOS" =====
   if (aboutSection) {
-    const aboutObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          aboutSection.classList.add('visible');
-          aboutObserver.unobserve(aboutSection);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    aboutObserver.observe(aboutSection);
+    // Si la section est déjà visible dans le HTML, ne rien faire
+    if (!aboutSection.classList.contains('visible')) {
+      const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            aboutSection.classList.add('visible');
+            aboutObserver.unobserve(aboutSection);
+          }
+        });
+      }, { threshold: 0.2 });
+      aboutObserver.observe(aboutSection);
+    }
   }
 
   // ===== VIDEO SOUND ON HOVER/CLICK =====

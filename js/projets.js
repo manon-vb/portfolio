@@ -1,6 +1,22 @@
 // ===== NOUVEAU COMPORTEMENT DU HEADER =====
 // ===== COMPORTEMENT DES HEADERS (VERSION CORRIGÉE POUR LES CATÉGORIES UNIQUEMENT) =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure carousel videos don't get paused when user hovers them.
+  // Some browsers or interactions can inadvertently pause a video on hover/click;
+  // here we re-enforce playback on mouseenter/mouseover and prevent accidental
+  // pause via click by re-playing immediately. This does not prevent explicit
+  // programmatic pauses elsewhere (e.g. auto-slide logic).
+  function preventHoverPause() {
+    const videos = document.querySelectorAll('.carousel-video');
+    videos.forEach((v) => {
+      // Try to play if paused when pointer enters
+      v.addEventListener('mouseenter', () => { if (v.paused) v.play().catch(()=>{}); });
+      v.addEventListener('mouseover', () => { if (v.paused) v.play().catch(()=>{}); });
+      // Some accidental clicks toggle playback in some setups — force play back
+      v.addEventListener('click', (e) => { e.stopPropagation(); if (v.paused) v.play().catch(()=>{}); });
+    });
+  }
+  preventHoverPause();
   const header = document.querySelector('.main-header');
   const verticalNav = document.querySelector('.vertical-projects-nav');
   const carousel3D = document.querySelector('.carousel-3d'); // Section du carousel 3D

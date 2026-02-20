@@ -18,8 +18,6 @@
    <!-- fond -->
 <link rel="preload" href="assets/videos/fond-nouveau-fonce-projets.mp4" as="video" type="video/mp4">
 <!--3d-->
-<link rel="preload" href="assets/images/3d/what a mess iso video.mp4" as="video" type="video/mp4">
-<link rel="preload" href="assets/images/3d/what-a-mess inside.mp4" as="video" type="video/mp4">
 <link rel="preload" href="assets/images/3d/scène éclairée.png" as="image" type="image/png">
 <link rel="preload" href="assets/images/3d/scène éclairée side.png" as="image" type="image/png">
 <link rel="preload" href="assets/images/3d/viewport view.png" as="image" type="image/png">
@@ -28,10 +26,10 @@
 <link rel="preload" href="assets/images/3d/what a mess iso.png" as="image" type="image/png">
 <!--animation-->
 <link rel="preload" href="assets/images/animation/bestioles.mp4" as="video" type="video/mp4">
-<link rel="preload" href="assets/images/animation/La dame du métro.mp4" as="video" type="video/mp4">
-<link rel="preload" href="assets/images/animation/VALIN_Manon_Tecla.mp4" as="video" type="video/mp4">
+
 <!--graphisme-->
-<link rel="preload" href="assets/images/graphisme/vidéo finale anim.mp4" as="video" type="video/mp4">
+<!-- jeu (gameplay) -->
+<link rel="preload" href="assets/images/jeu/gameplay.mp4" as="video" type="video/mp4">
 
 </head>
 <body>
@@ -80,7 +78,7 @@
       <!-- Tes images existantes (exemple) -->
       <!-- Exemple pour un item du carousel 3D -->
 <div class="carousel-3d-item">
-  <img src="assets/images/3d/scène éclairée side.png" alt="Catégorie - 3D">
+  <img src="assets/images/3d/barbie rendu 2.png" alt="Catégorie - 3D">
   <div class="project-card-overlay" onclick="scrollToCategory('3d')">
     <h3>3D</h3>
     <p class="project-category-link">→ voir plus</p> <!-- NOUVEAU : Flèche et texte -->
@@ -98,7 +96,7 @@
 </div>
 
 <div class="carousel-3d-item">
-  <img src="assets/images/image test 2.jpg" alt="Catégorie - Jeu">
+  <img src="assets/images/jeu/screen unity.png" alt="Catégorie - Jeu">
   <div class="project-card-overlay" onclick="scrollToCategory('jeu')">
     <h3>Jeu</h3>
     <p class="project-category-link">→ voir plus</p> <!-- NOUVEAU : Flèche et texte -->
@@ -130,13 +128,16 @@
   
 
   <!-- Carousel 2D pleine largeur (projet 1) -->
- <div class="full-width-carousel-wrapper" id="scene-eclairee">
+ <div class="full-width-carousel-wrapper" id="barbie">
   <div class="full-width-carousel">
      <div class="carousel-2d-buttons"> <!-- NOUVEAU conteneur pour les boutons -->
     <button class="carousel-2d-prev">←</button>
     <button class="carousel-2d-next">→</button>
      </div>
     <div class="carousel-2d">
+       <div class="carousel-2d-slide">
+        <img src="assets/images/3d/barbie rendu 2.png" alt="3d- scène viewport blender">
+      </div>
        <div class="carousel-2d-slide">
         <img src="assets/images/3d/scène éclairée.png" alt="3d- scène intérieur">
       </div>
@@ -156,13 +157,13 @@
   <div class="project-category-content">  
  <div class="project-info">
       <h3>Assets 3D</h3>
-      <p>Description détaillée du projet 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+       <p>Réalisés en vue d'être intégrés à un court métrage d'animation en cours de réalisation. Modélisation : Blender, Texturing : Substance Painter, Rendu : Cycles.</p>
     </div>
   </div>
   </div>
 
   <!-- Conteneur principal pour la partie projet -->
-  <div class="project-content-wrapper">
+  <div class="project-content-wrapper" id="whatamess">
     <!-- Carousel portrait (60%) -->
     <div class="portrait-carousel-container">
       <div class="portrait-carousel">
@@ -183,8 +184,8 @@
 
       <!-- Project-info (50% hauteur) -->
       <div class="project-info">
-        <h3>What a mess - environnement VR</h3>
-        <p>Description détaillée du projet...</p>
+         <h3>Environnement VR</h3>
+        <p>Environnement 3D préparé pour être visualisé en réalité virtuelle (VR).<br> Réalisé sur VSCode, moteur Aframe.</p>
       </div>
     </div>
   </div>
@@ -242,7 +243,8 @@
   <div class="project-category-content">  
  <div class="project-info">
       <h3>Parallaxe</h3>
-      <p>Description détaillée du projet 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Mise en profondeur d'une ville illustrée en 2D, basé sur l'ouvrage <i>Les Villes Invisibles</i> d'Italo 
+        Calvino. Réalisé avec After Effects, Premiere et Procreate.</p>
     </div>
   </div>
   </div>
@@ -272,10 +274,10 @@
 
       <!-- Project-info (50% hauteur) -->
       <div class="project-info">
-        <h3>Titre du projet</h3>
-        <p>Description du projet...</p>
-        <h3>Titre du projet</h3>
-        <p>Description du projet...</p>
+         <h3>Bestioles</h3>
+        <p>Animation créée à partir de rotoscopies d'un chat. Musique : Tame Impala. Réalisé sur Illustrator etAfter Effects.</p>
+        <h3>Metro</h3>
+        <p>Projet personnel de micro animation. Réalisé sur After Effects et Procreate.</p>
       </div>
     </div>
   </div>
@@ -289,12 +291,6 @@
           <button class="carousel-2d-next">→</button>
         </div>
         <div class="carousel-2d">
-          <div class="carousel-2d-slide">
-            <video class="carousel-video" autoplay muted loop playsinline>
-              <source src="assets/images/animation/La dame du métro.mp4" type="video/mp4">
-              Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
-            </video>
-          </div>
           <div class="carousel-2d-slide">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
               <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/q06upi?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
@@ -321,65 +317,29 @@
      </div>
     <div class="carousel-2d">
       <div class="carousel-2d-slide">
-        <img src="assets/images/image test 2.jpg" alt="Projet 5 - Nom du projet">
+         <video class="carousel-video" autoplay muted loop playsinline preload="auto">
+              <source src="assets/images/jeu/gameplay.mp4" type="video/mp4">
+              Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
+            </video>
       </div>
       <div class="carousel-2d-slide">
-        <img src="assets/images/image test.jpg" alt="Projet 5 - Détail">
+        <img src="assets/images/jeu/screen unity.png" alt="Projet 5 - Détail">
+      </div>
+      <div class="carousel-2d-slide">
+        <img src="assets/images/jeu/screen blender rig.png" alt="Projet 5 - Détail">
+      </div>
+      <div class="carousel-2d-slide">
+        <img src="assets/images/jeu/screen blender.png" alt="Projet 5 - Détail">
       </div>
     </div>
   </div>
  </div>
   <div class="project-category-content">  
  <div class="project-info">
-      <h3>nom du projet 5</h3>
-      <p>Description détaillée du projet 5. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h3>Save the ladybugs</h3>
+      <p>Jeu d'arcade pour mobile. Réalisé avec Unity(C#) et Blender.</p>
     </div>
   </div>
-  </div>
-
-  <!-- Conteneur principal pour la partie projet -->
-  <div class="project-content-wrapper">
-    <!-- Carousel portrait (60%) -->
-    <div class="portrait-carousel-container">
-      <div class="portrait-carousel">
-        <div class="portrait-carousel-inner">
-          <div class="portrait-carousel-slide active">
-            <img src="assets/images/image test.jpg" alt="placeholder">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Conteneur pour image paysage + project-info (40% largeur) -->
-    <div class="landscape-content-wrapper">
-      <!-- Image paysage (50% hauteur) -->
-      <div class="landscape-image-container">
-        <img src="assets/images/image test.jpg" alt="placeholder">
-      </div>
-
-      <!-- Project-info (50% hauteur) -->
-      <div class="project-info">
-        <h3>Titre du projet</h3>
-        <p>Description du projet...</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Carousel paysage (en dessous, largeur limitée) -->
-  <div class="landscape-carousel-section">
-    <div class="landscape-carousel-wrapper">
-      <div class="landscape-carousel">
-        <div class="carousel-2d-buttons">
-          <button class="carousel-2d-prev">←</button>
-          <button class="carousel-2d-next">→</button>
-        </div>
-        <div class="carousel-2d">
-          <div class="carousel-2d-slide">
-            <img src="assets/images/image test.jpg" alt="placeholder">
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -408,7 +368,7 @@
   <div class="project-category-content">  
  <div class="project-info">
       <h3>Nuages variables</h3>
-      <p>Description détaillée du projet 7. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Interface web permettant de contrôler l'apparence de nuages en mouvement. Réalisé sur VSCode (html, css et js).</p>
     </div>
   </div>
   </div>
@@ -435,12 +395,12 @@
 
       <!-- Project-info (50% hauteur) -->
       <div class="project-info">
-        <h3>Titre du projet</h3>
-        <p>Description du projet...</p>
-        <h3>Titre du projet</h3>
-        <p>Description du projet...</p>
-        <h3>Titre du projet</h3>
-        <p>Description du projet...</p>
+           <h3>Emojis</h3>
+        <p>Création d'émojis à partir d'un animal totem. Réalisé sur Illustrator.</p>
+        <h3>Identité visuelle</h3>
+        <p>Recherche d'une charte graphique pour une marque fictive de cosmétiques naturels. Réalisé sur Figma et Illustrator.</p>
+        <h3>Mise en page</h3>
+        <p>Création d'un flyer pour un événement fictif. Réalisé sur InDesign.</p>
       </div>
     </div>
   </div>
@@ -570,6 +530,5 @@
       }
     });
   </script>
-  <script src="js/projets.js"></script>
-</body>
+  <script src="js/projets.js"></script></body>
 </html>

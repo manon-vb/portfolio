@@ -462,6 +462,28 @@ html, body {
   object-position: center;
   display: block;
 }
+/* Ensure `.carousel-video` fills the slide (avoid letterbox and keep full-height)
+   Use absolute positioning inside the slide so the media can overflow horizontally
+   while always filling the slide height. */
+.full-width-carousel .carousel-2d-slide {
+  position: relative; /* ensure absolute child anchors to this */
+}
+
+/* Keep original aspect ratio: center the video and fit by height
+   (will show horizontal gaps if video is narrower than the slide). */
+.full-width-carousel .carousel-2d-slide .carousel-video,
+.carousel-2d-slide .carousel-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100% !important; /* fill slide height */
+  width: auto !important; /* keep original aspect ratio */
+  max-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
 
 /* Streamable iframe optimization for scroll performance */
 .streamable-iframe {
@@ -1195,6 +1217,34 @@ html.scrolling .streamable-iframe {
   border: 1px solid rgba(154, 232, 196, 0.2);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
+/* Desktop tweak: slightly increase nav width on wide screens to avoid wrapping issues */
+@media (min-width: 1400px) {
+  .vertical-projects-nav {
+    /* Slightly reduced so last item naturally wraps into two words */
+    width: 7.2vw;
+    min-width: 120px;
+  }
+  .vertical-nav-link {
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    line-height: 1.28;
+  }
+  /* Allow the 'graphisme' label to wrap but avoid mid-word breaks */
+  .vertical-nav-item:nth-child(4) .vertical-nav-link {
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  /* Ensure last item wraps into two whole words (no hyphenation or word-break) */
+  .vertical-nav-item:last-child .vertical-nav-link {
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    line-height: 1.18;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
 
 /* Liste verticale avec séparateurs */
 .vertical-nav-list {
@@ -1224,19 +1274,31 @@ html.scrolling .streamable-iframe {
   display: block;
   width: 100%;
   height: auto;
-  padding: 8px 15px; /* Espacement interne */
+  padding: 8px 12px; /* Espacement interne réduit */
   background: transparent; /* Fond transparent */
   color: rgba(154, 232, 196, 0.8);
   font-size: 0.8rem; /* Taille de police ajustée */
   text-decoration: none;
   transition: all 0.3s ease;
   pointer-events: inherit;
-  line-height: 1.8;
+  line-height: 1.4; /* tighter line height to avoid overflow */
   letter-spacing: 0.02em;
-  transform: scaleY(1.15);
+  transform: none; /* removed scale to avoid overflow */
   text-align: right;
   border-radius: 8px; /* Coins arrondis pour les liens */
+  white-space: nowrap; /* keep links on a single line by default */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
+
+/* Only allow the last nav link ("Arts Plastiques") to wrap onto two lines */
+.vertical-nav-item:last-child .vertical-nav-link {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 
 /* Effet au survol des liens */
 .vertical-nav-link:hover {

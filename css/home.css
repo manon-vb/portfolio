@@ -686,11 +686,12 @@ font-family: 'Bodoni Moda', serif;
 }
 
 .about-section-new.visible {
-  min-height: 80vh;
-  max-height: none;
+  min-height: 80vh !important;
+  max-height: 200vh !important;
   opacity: 1 !important;
   pointer-events: auto !important;
-  visibility: visible;
+  visibility: visible !important;
+  transition: opacity 0.6s ease, visibility 0.6s ease, min-height 0.6s ease, max-height 0.6s ease;
 }
 
 /* Responsive - CORRIGÉ */
