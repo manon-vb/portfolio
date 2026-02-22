@@ -18,7 +18,7 @@
   margin: 0 auto;
   white-space: pre;
   overflow: visible;
-  text-align: center;
+  text-align: left;
   .about-background {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
