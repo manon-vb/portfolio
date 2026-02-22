@@ -1,3 +1,20 @@
+@media (max-width: 768px) {
+  .logo-fixed {
+    display: none !important;
+  }
+}
+/* Fixed logo on the left */
+.logo-fixed {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 100;
+  background: none;
+}
+.logo-fixed img {
+  height: 48px;
+  width: auto;
+}
 /* Font Face Declarations */
 @font-face {
   font-family: 'Harmond ExtBd Exp';

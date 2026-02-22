@@ -473,9 +473,9 @@ fullWidthCarousels.forEach((carousel) => {
       });
     }
 
-    // Démarre le défilement auto (3 secondes)
+    // Démarre le défilement auto (6 secondes)
     function startAutoSlide() {
-      slideInterval = setInterval(nextSlide, 3000);
+      slideInterval = setInterval(nextSlide, 6000);
     }
 
     // Initialisation

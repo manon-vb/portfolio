@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projets - Manon Valin-Barraud</title>
+  <title>Projets - Manon Valin</title>
   <!-- Preconnect for faster font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,11 @@
 
 </head>
 <body>
+  <div class="logo-fixed">
+    <a href="index.html">
+      <img src="assets/images/favicon.png" alt="Logo">
+    </a>
+  </div>
   <!-- Fond vidéo et header (identique à ton index.html) -->
   <div class="common-background">
     <video autoplay muted loop playsinline class="background-video" preload="auto">
@@ -112,7 +117,7 @@
 </div>
 
 <div class="carousel-3d-item">
-  <img src="assets/images/image test 2.jpg" alt="Catégorie - Arts Plastiques">
+  <img src="assets/images/arts plastiques/croquis archi (8).jpg" alt="Catégorie - Arts Plastiques">
   <div class="project-card-overlay" onclick="scrollToCategory('arts-plastiques')">
     <h3>Arts Plastiques</h3>
     <p class="project-category-link">→ voir plus</p> <!-- NOUVEAU : Flèche et texte -->
@@ -229,7 +234,7 @@
     <button class="carousel-2d-next">→</button>
      </div>
     <div class="carousel-2d">
-      <div class="carousel-2d-slide">
+      <div class="carousel-2d-slide"id="tecla">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
           <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/py95p3?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 50%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
         </div>
@@ -315,7 +320,7 @@
     <button class="carousel-2d-prev">←</button>
     <button class="carousel-2d-next">→</button>
      </div>
-    <div class="carousel-2d">
+    <div class="carousel-2d" id="jeu">
       <div class="carousel-2d-slide">
          <video class="carousel-video" autoplay muted loop playsinline preload="auto">
               <source src="assets/images/jeu/gameplay.mp4" type="video/mp4">
@@ -352,11 +357,7 @@
   <!-- Carousel 2D pleine largeur (projet 1) -->
  <div class="full-width-carousel-wrapper">
   <div class="full-width-carousel">
-     <div class="carousel-2d-buttons"> <!-- NOUVEAU conteneur pour les boutons -->
-    <button class="carousel-2d-prev">←</button>
-    <button class="carousel-2d-next">→</button>
-     </div>
-    <div class="carousel-2d">
+    <div class="carousel-2d" id="nuages">
       <div class="carousel-2d-slide">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
           <iframe allow="fullscreen;autoplay" allowfullscreen src="https://streamable.com/e/zb11p1?autoplay=0" class="streamable-iframe" data-duration="45" style="border:none; position: absolute; top: 62%; left: 50%; width: 125%; height: 125%; transform: translate(-50%, -50%);"></iframe>
@@ -436,24 +437,17 @@
   <!-- Carousel 2D pleine largeur (projet 1) -->
  <div class="full-width-carousel-wrapper">
   <div class="full-width-carousel">
-     <div class="carousel-2d-buttons"> <!-- NOUVEAU conteneur pour les boutons -->
-    <button class="carousel-2d-prev">←</button>
-    <button class="carousel-2d-next">→</button>
-     </div>
     <div class="carousel-2d">
       <div class="carousel-2d-slide">
-        <img src="assets/images/image test 2.jpg" alt="Projet 9 - Nom du projet">
-      </div>
-      <div class="carousel-2d-slide">
-        <img src="assets/images/image test.jpg" alt="Projet 9 - Détail">
+        <img src="assets/images/arts plastiques/gravure.png" alt="gravure sur tetrapack">
       </div>
     </div>
   </div>
  </div>
   <div class="project-category-content">  
  <div class="project-info">
-      <h3>nom du projet 9</h3>
-      <p>Description détaillée du projet 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h3>Gravure sur tetrapack</h3>
+      <p>Impressions à l'encre. Inspirée du travail de Alphonse Mucha.</p>
     </div>
   </div>
   </div>
@@ -461,11 +455,23 @@
   <!-- Conteneur principal pour la partie projet -->
   <div class="project-content-wrapper">
     <!-- Carousel portrait (60%) -->
-    <div class="portrait-carousel-container">
+    <div class="portrait-carousel-container" id="corbeau">
       <div class="portrait-carousel">
         <div class="portrait-carousel-inner">
           <div class="portrait-carousel-slide active">
-            <img src="assets/images/image test.jpg" alt="placeholder">
+            <video class="carousel-video" autoplay muted loop playsinline>
+          <source src="assets/images/arts plastiques/corbeau .mp4" type="video/mp4">
+          Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
+        </video>
+          </div>
+          <div class="portrait-carousel-slide active">
+            <video class="carousel-video" autoplay muted loop playsinline>
+          <source src="assets/images/arts plastiques/corbeau 3d.mp4" type="video/mp4">
+          Ton navigateur ne supporte pas la vidéo. <!-- Fallback -->
+        </video>
+          </div>
+          <div class="portrait-carousel-slide active">
+           <img src="assets/images/arts plastiques/corbeau impression.png" alt="corbeau - sculpture en argile">
           </div>
         </div>
       </div>
@@ -475,13 +481,17 @@
     <div class="landscape-content-wrapper">
       <!-- Image paysage (50% hauteur) -->
       <div class="landscape-image-container">
-        <img src="assets/images/image test.jpg" alt="placeholder">
+        <img src="assets/images/arts plastiques/croquis persos (3).png" alt="modèle vivant">
       </div>
 
       <!-- Project-info (50% hauteur) -->
       <div class="project-info">
-        <h3>Titre du projet</h3>
-        <p>Description du projet...</p>
+        <h3>Modelage</h3>
+        <p>Modelage en terre d'un animal de fable (Le corbeau et le renard), puis scan 3d et impression 3d.</p>
+        <h3>Modèle vivant</h3>
+        <p>Dessin d'obsrvation, pose longue.</p>
+        <h3>Croquis d'architecture</h3>
+        <p>Dessins d'observation réalisés dans les rues de Paris (Marais, Butte aux Cailles, Père Lachaise, Jardin du Luxembourg).</p>
       </div>
     </div>
   </div>
@@ -494,9 +504,24 @@
           <button class="carousel-2d-prev">←</button>
           <button class="carousel-2d-next">→</button>
         </div>
-        <div class="carousel-2d">
+        <div class="carousel-2d" id="croquis-archi">
           <div class="carousel-2d-slide">
-            <img src="assets/images/image test.jpg" alt="placeholder">
+            <img src="assets/images/arts plastiques/croquis archi (8).jpg" alt="placeholder">
+          </div>
+          <div class="carousel-2d-slide">
+            <img src="assets/images/arts plastiques/croquis archi (5).jpg" alt="placeholder">
+          </div>
+          <div class="carousel-2d-slide">
+            <img src="assets/images/arts plastiques/croquis archi (6).jpg" alt="placeholder">
+          </div>
+          <div class="carousel-2d-slide">
+            <img src="assets/images/arts plastiques/croquis archi (4).jpg" alt="placeholder">
+          </div>
+          <div class="carousel-2d-slide">
+            <img src="assets/images/arts plastiques/croquis archi (10).jpg" alt="placeholder">
+          </div>
+          <div class="carousel-2d-slide">
+            <img src="assets/images/arts plastiques/croquis archi (11).jpg" alt="placeholder">
           </div>
         </div>
       </div>
